@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+<br />
+{% block title %}Welcome to Tweetuur{% endblock %}
+<br />
+{% block content %}
+<style>
+  .parallax-bg {
+    background-image: url("https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1920&q=80");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center left;
+  }
+  .light-shine {
+    background: radial-gradient(
+      circle at 0% 50%,
+      rgba(255, 255, 255, 0.15),
+      transparent 60%
+    );
+    mix-blend-mode: screen;
+  }
+</style>
+
+<section
+  class="relative min-h-screen parallax-bg flex items-center justify-center"
+>
+  <!-- Light Shine -->
+  <div class="absolute inset-0 light-shine pointer-events-none"></div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 text-center px-6 mt-32">
+    <h1 class="text-5xl md:text-7xl font-bold text-white drop-shadow-2xl">
+      Welcome to <span class="text-blue-400">Tweetuur</span>
+    </h1>
+    <p class="mt-4 text-xl text-gray-200">Let your thoughts take flight</p>
+    <a
+      href="{% url 'tweet_list' %}"
+      class="mt-6 inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition"
+    >
+      Enter the Feed
+    </a>
+  </div>
+</section>
+
+<section class="bg-white text-gray-800 py-20 px-6 text-center">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-4xl font-bold mb-6">What is Tweetuur?</h2>
+    <p class="text-lg leading-relaxed">
+      Tweetuur is your lightweight, modern micro-blogging platform built with
+      Django and Tailwind CSS. Share thoughts, post images, and follow others in
+      a clean and fast interface.
+    </p>
+  </div>
+</section>
+{% endblock %}

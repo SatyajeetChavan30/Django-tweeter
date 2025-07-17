@@ -1,0 +1,57 @@
+{% extends "layout.html" %} {% block title %}Contact - Tweetuur{% endblock %}
+<br />
+{%block content %}
+<style>
+  .contact-parallax {
+    background-image: url("https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&w=1920&q=80");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+  }
+</style>
+
+<section
+  class="contact-parallax min-h-screen flex items-center justify-center relative"
+>
+  <div
+    class="bg-white bg-opacity-80 backdrop-blur-sm p-10 rounded-lg shadow-2xl text-center max-w-xl w-full"
+  >
+    <h1 class="text-4xl font-bold text-gray-800 mb-6">Get in Touch</h1>
+
+    <form method="POST" class="space-y-6">
+      {% csrf_token %}
+      <input
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        value="{{form.name.value|default:'' }}"
+        class="w-full p-3 rounded border border-gray-300 focus:outline-none"
+        required
+      />
+      <input
+        type="email"
+        placeholder="Your Email"
+        name="email"
+        value="{{form.email.value|default:'' }}"
+        class="w-full p-3 rounded border border-gray-300 focus:outline-none"
+        required
+      />
+      <textarea
+        placeholder="text"
+        rows="5"
+        name="text"
+        class="w-full p-3 rounded border border-gray-300 focus:outline-none"
+        required
+      >
+        {{form.text.value|default:'' }}</textarea
+      >
+      <button
+        type="submit"
+        class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded font-semibold transition"
+      >
+        Send Message
+      </button>
+    </form>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="max-w-lg mx-auto p-4 bg-white rounded-lg shadow mt-20">
+  <h2 class="text-xl font-semibold mb-4">Delete Tweet</h2>
+  <p>Are you sure you want to delete this tweet?</p>
+  <div class="bg-gray-100 p-2 mt-4 mb-4 rounded-lg">{{ tweet.text }}</div>
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="flex space-x-2">
+      <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded">
+        Yes, Delete
+      </button>
+      <a href="{% url 'tweet_list' %}" class="bg-gray-300 px-4 py-2 rounded"
+        >Cancel</a
+      >
+    </div>
+  </form>
+</div>
+{% endblock %}

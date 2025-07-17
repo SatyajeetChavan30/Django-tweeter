@@ -1,0 +1,35 @@
+{% extends "layout.html" %} {% block title %}About - Tweetuur{% endblock %}
+<br />
+{%block content %}
+<style>
+  .parallax-section {
+    background-image: url("https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1920&q=80");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+  }
+</style>
+
+<section
+  class="parallax-section min-h-screen flex items-center justify-center relative text-white text-center"
+>
+  <div class="bg-black bg-opacity-60 p-10 rounded-xl shadow-2xl">
+    <h1 class="text-5xl font-bold mb-4">About Tweetuur</h1>
+    <p class="text-xl max-w-2xl mx-auto">
+      Tweetuur is a minimalist social platform where your thoughts shine. Built
+      with Django + Tailwind CSS, we emphasize speed, simplicity, and beautiful
+      design.
+    </p>
+  </div>
+</section>
+
+<section class="bg-white py-20 text-center">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-6 text-gray-800">Our Mission</h2>
+    <p class="text-lg text-gray-600">
+      We believe in honest communication, privacy-first design, and giving users
+      a platform that feels like home—without distractions.
+    </p>
+  </div>
+</section>
+{% endblock %}

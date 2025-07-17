@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+<br />
+{% block content %}
+<div class="max-w-xl mx-auto p-6 bg-white rounded-lg shadow mt-25">
+  <h2 class="text-2xl font-bold mb-4">
+    {% if form.instance.pk %}Edit a Tweet {% else %}Create a Tweet{% endif %}
+  </h2>
+
+  <form method="post" enctype="multipart/form-data" class="space-y-4">
+    {% csrf_token %}
+
+    <div>
+      <label for="text" class="block text-gray-700 font-medium mb-1"
+        >Text</label
+      >
+      <textarea
+        name="text"
+        id="text"
+        rows="4"
+        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-500"
+        placeholder="What's happening?"
+        required
+      >
+{{ form.text.value|default_if_none:'' }}</textarea
+      >
+    </div>
+
+    <div>
+      <label for="photo" class="block text-gray-700 font-medium mb-1"
+        >Photo (optional)</label
+      >
+      <input
+        type="file"
+        name="photo"
+        id="photo"
+        class="w-full border border-gray-300 rounded px-3 py-2"
+      />
+    </div>
+
+    <div class="flex justify-end">
+      <button
+        type="submit"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded"
+      >
+        Tweet
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}
